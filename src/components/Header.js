@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import Score from "./Score";
+import Score from "./Score"; 
+import logo from "../assets/images/logo.svg"
 
 const HeaderContainer = styled.div`
-    margin: 80px auto;
-    height: 180px;
+    margin: 40px auto;
+    height: 120px;
     width: 80%;
     border: 5px solid hsl(217, 16%, 45%);
     border-radius: 10px;
@@ -11,11 +12,9 @@ const HeaderContainer = styled.div`
     justify-content: space-between;
 `;
 
-const HeaderTitle = styled.div`
-    text-align: left;
-    color: white;
-    line-height: 0.8;
+const HeaderLogo = styled.img`
     margin: auto auto auto 20px;
+    height: 60%;
 `;
 
 const Header = () => {
@@ -23,11 +22,7 @@ const Header = () => {
 
     return (
         <HeaderContainer>
-            <HeaderTitle>
-                <h1>ROCK</h1>
-                <h1>PAPER</h1>
-                <h1>SCISSORS</h1>
-            </HeaderTitle>
+            <HeaderLogo img src={logo}  alt="rock paper scissors" />
             <Score />
         </HeaderContainer>
     )

@@ -3,22 +3,23 @@ import styled from "styled-components";
 const ScoreContainer = styled.div`
     border-radius: 5px;
     background: white;
-    height: 120px;
-    width: 120px;
+    height: 80px;
+    width: 80px;
     margin: auto 20px auto;
     line-height: 1;
+    text-align: center;
 `;
 
 const Title = styled.h1`
     color: hsl(229, 64%, 46%);
-    font-size: 16px;
-    letter-spacing: 3px;
-    margin: 20px auto 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 10px;
 `;
 
 const ScoreNumber = styled.h1`
     color: hsl(229, 25%, 31%);
-    font-size: 60px;
+    font-size: 48px;
 `;
 
 // will take total score as a prop from state
