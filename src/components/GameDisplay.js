@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import GameStepOne from "./GameStepOne";
+import GameStepTwo from "./GameStepTwo"
 
 const SelectionWrapper = styled.div`
     position: relative;
@@ -13,7 +14,8 @@ const SelectionWrapper = styled.div`
 const GameDisplay = () => {
     return (
         <SelectionWrapper>
-            <GameStepOne />
+            {/* <GameStepOne /> */}
+            <GameStepTwo />
         </SelectionWrapper>
     )
 }

@@ -1,17 +1,21 @@
 import styled from "styled-components";
-import trianglePic from "../assets/images/bg-triangle.svg";
 import { rpsArray } from "../assets/shared/data";
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     row-gap: 10%;
-    background: url(${trianglePic});
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: top 100px center;
+    grid-template-columns: 1fr 1fr;
     margin: auto;
     padding: 40px 0;
+`;
+
+const EmptyButton = styled.div`
+    background: hsl(237, 49%, 15%);
+    opacity: 0.5;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    margin: auto;
 `;
 
 const ButtonWrapper = styled.div`
@@ -24,9 +28,6 @@ const ButtonWrapper = styled.div`
     width: 150px;
     margin: auto;
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
-    &:last-child {
-        grid-column: 1/3;
-    }
 `;
 
 const RPSButton = styled.div`
@@ -41,20 +42,27 @@ const RPSButton = styled.div`
 `;
 
 
-const GameStepOne = () => {
+const DisplayText = styled.h1`
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 2px;
+`;
+
+const GameStepTwo = () => {
     return (
         <Container>
-            {rpsArray.map((item) => {
-                return (
-                    <ButtonWrapper color={item.color} shadow={item.shadow} key={item.id} >
-                        <RPSButton>
-                            <img src={item.image} alt="rps symbol" />
-                        </RPSButton>
-                    </ButtonWrapper>
-                )
-            })}
+            <ButtonWrapper>
+                <RPSButton />
+            </ButtonWrapper>
+            <EmptyButton />
+            {/* <ButtonWrapper>
+                <RPSButton />
+            </ButtonWrapper> */}
+            <DisplayText>YOU PICKED</DisplayText>
+            <DisplayText>THE HOUSE PICKED</DisplayText>
         </Container>
     )
 }
 
-export default GameStepOne
+export default GameStepTwo
