@@ -4,7 +4,7 @@ import { rpsArray } from "../assets/shared/data";
 
 const Container = styled.div`
     display: grid;
-    row-gap: 10%;
+    row-gap: 20px;
     grid-template-columns: 1fr 1fr;
     margin: auto;
     padding: 40px 0;
@@ -47,13 +47,32 @@ const DisplayText = styled.h1`
     text-align: center;
     color: white;
     font-size: 16px;
+    
+`;
+
+const ResultRow = styled.div`
+    grid-column: 1/3;
+    text-align: center;
+    font-size: 36px;
+    color: white;
+`;
+
+const PlayAgainButton = styled.button`
+    width: 200px;
+    height: 50px;
+    margin: auto;
+    background: white;
+    color: hsl(229, 25%, 31%);
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
     letter-spacing: 2px;
 `;
 
-
 const GameStepTwo = ({ pick }) => {
 
-    const [housePick, setHousePick] = useState()
+    const [housePick, setHousePick] = useState("")
+    const [result, setResult] = useState("")
 
 
     useEffect(() => {
@@ -62,7 +81,39 @@ const GameStepTwo = ({ pick }) => {
         }, 2000)
     }, [])
 
+    const handleResult = (x,y) => {
+        if (x.id === 'paper') {
+            return (          
+            y.id === 'rock'
+                ? "WIN"
+                : y.id==='scissor'
+                    ? "LOSE"
+                    : "TIE"
+        )}
+        if (x.id === 'rock') {  
+            return (          
+            y.id === 'scissor'
+                ? "WIN"
+                : y.id==='paper'
+                    ? "LOSE"
+                    : "TIE"
+        )}
+        if (x.id === 'scissor') {    
+            return (        
+            y.id === 'paper'
+                ? "WIN"
+                : y.id==='rock'
+                    ? "LOSE"
+                    : "TIE"
+        )}
+    }
 
+    useEffect(() => {
+        if (housePick){
+        setTimeout(() => {
+            setResult(handleResult(pick, housePick))
+        }, 3000)}
+    }, [pick, housePick])
 
     return (
         <Container>
@@ -81,6 +132,12 @@ const GameStepTwo = ({ pick }) => {
             }
             <DisplayText>YOU PICKED</DisplayText>
             <DisplayText>THE HOUSE PICKED</DisplayText>
+            {result && <ResultRow><h1>YOU {result}</h1></ResultRow> }
+            {result && 
+                <ResultRow>
+                    <PlayAgainButton>PLAY AGAIN</PlayAgainButton>
+                </ResultRow>
+            }
         </Container>
     )
 }
