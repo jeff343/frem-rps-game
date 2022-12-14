@@ -1,13 +1,18 @@
 import './App.css';
-import Header from "./components/Header"
+import { ScoreProvider } from './components/ScoreContext';
+import Header from "./components/Header";
 import GameDisplay from './components/GameDisplay';
 
+
 function App() {
+
+
   return (
-    <div className="App">
+    <ScoreProvider>
       <Header />
       <GameDisplay />
-    </div>
+    </ScoreProvider>
+
   );
 }
 

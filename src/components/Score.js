@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useContext } from "react";
+import { ScoreContext } from "./ScoreContext";
 
 const ScoreContainer = styled.div`
     border-radius: 5px;
@@ -22,12 +24,14 @@ const ScoreNumber = styled.h1`
     font-size: 48px;
 `;
 
-// will take total score as a prop from state
 const Score = () => {
+
+    const score = useContext(ScoreContext)
+
     return (
         <ScoreContainer>
             <Title>SCORE</Title>
-            <ScoreNumber>12</ScoreNumber>
+            <ScoreNumber>{score}</ScoreNumber>
         </ScoreContainer>
     )
 }

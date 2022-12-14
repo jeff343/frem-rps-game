@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ScoreDispatchContext } from "./ScoreContext";
 import { rpsArray } from "../assets/shared/data";
 
 const Container = styled.div`
@@ -73,6 +74,7 @@ const GameStepTwo = ({ pick }) => {
 
     const [housePick, setHousePick] = useState("")
     const [result, setResult] = useState("")
+    const dispatch = useContext(ScoreDispatchContext)
 
 
     useEffect(() => {
@@ -115,6 +117,16 @@ const GameStepTwo = ({ pick }) => {
         }, 3000)}
     }, [pick, housePick])
 
+
+    useEffect(() => {
+        if (result) {
+            dispatch({
+                type: result,
+            })
+            console.log(result)
+        }
+    },[dispatch, result])
+
     return (
         <Container>
             <ButtonWrapper color={pick.color} shadow={pick.shadow} >
@@ -135,7 +147,7 @@ const GameStepTwo = ({ pick }) => {
             {result && <ResultRow><h1>YOU {result}</h1></ResultRow> }
             {result && 
                 <ResultRow>
-                    <PlayAgainButton>PLAY AGAIN</PlayAgainButton>
+                    <PlayAgainButton >PLAY AGAIN</PlayAgainButton>
                 </ResultRow>
             }
         </Container>
