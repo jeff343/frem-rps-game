@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { rpsArray } from "../assets/shared/data";
 
 const Container = styled.div`
@@ -49,16 +50,35 @@ const DisplayText = styled.h1`
     letter-spacing: 2px;
 `;
 
-const GameStepTwo = () => {
+
+const GameStepTwo = ({ pick }) => {
+
+    const [housePick, setHousePick] = useState()
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            setHousePick(rpsArray[Math.floor(Math.random() * 3)])
+        }, 2000)
+    }, [])
+
+
+
     return (
         <Container>
-            <ButtonWrapper>
-                <RPSButton />
+            <ButtonWrapper color={pick.color} shadow={pick.shadow} >
+                <RPSButton>
+                    <img src={pick.image} alt="your pick" /> 
+                </RPSButton>
             </ButtonWrapper>
-            <EmptyButton />
-            {/* <ButtonWrapper>
-                <RPSButton />
-            </ButtonWrapper> */}
+            {!housePick 
+                ? <EmptyButton />
+                : <ButtonWrapper color={housePick.color} shadow={housePick.shadow} >
+                    <RPSButton>
+                        <img src={housePick.image} alt="house pick" /> 
+                    </RPSButton>
+                  </ButtonWrapper>
+            }
             <DisplayText>YOU PICKED</DisplayText>
             <DisplayText>THE HOUSE PICKED</DisplayText>
         </Container>

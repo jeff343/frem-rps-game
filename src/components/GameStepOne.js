@@ -41,12 +41,13 @@ const RPSButton = styled.div`
 `;
 
 
-const GameStepOne = () => {
+const GameStepOne = ({ handleUserPick }) => {
+
     return (
         <Container>
             {rpsArray.map((item) => {
                 return (
-                    <ButtonWrapper color={item.color} shadow={item.shadow} key={item.id} >
+                    <ButtonWrapper onClick={handleUserPick(item)} color={item.color} shadow={item.shadow} key={item.id} >
                         <RPSButton>
                             <img src={item.image} alt="rps symbol" />
                         </RPSButton>

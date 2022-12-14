@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import GameStepOne from "./GameStepOne";
 import GameStepTwo from "./GameStepTwo"
 
@@ -12,10 +13,19 @@ const SelectionWrapper = styled.div`
 
 
 const GameDisplay = () => {
+
+    const [userPick, setUserPick] = useState()
+    const handleUserPick = (item) => () => {
+        setUserPick(item)
+    }
+
+
     return (
         <SelectionWrapper>
-            {/* <GameStepOne /> */}
-            <GameStepTwo />
+            {!userPick
+                ? <GameStepOne handleUserPick={handleUserPick} />
+                : <GameStepTwo pick={userPick} />
+            }
         </SelectionWrapper>
     )
 }
