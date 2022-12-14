@@ -70,7 +70,7 @@ const PlayAgainButton = styled.button`
     letter-spacing: 2px;
 `;
 
-const GameStepTwo = ({ pick }) => {
+const GameStepTwo = ({ pick, setUserPick }) => {
 
     const [housePick, setHousePick] = useState("")
     const [result, setResult] = useState("")
@@ -114,7 +114,7 @@ const GameStepTwo = ({ pick }) => {
         if (housePick){
         setTimeout(() => {
             setResult(handleResult(pick, housePick))
-        }, 3000)}
+        }, 2000)}
     }, [pick, housePick])
 
 
@@ -126,6 +126,12 @@ const GameStepTwo = ({ pick }) => {
             console.log(result)
         }
     },[dispatch, result])
+
+    const playAgain = () => {
+        setHousePick("")
+        setUserPick("")
+        setResult("")
+    }
 
     return (
         <Container>
@@ -147,7 +153,7 @@ const GameStepTwo = ({ pick }) => {
             {result && <ResultRow><h1>YOU {result}</h1></ResultRow> }
             {result && 
                 <ResultRow>
-                    <PlayAgainButton >PLAY AGAIN</PlayAgainButton>
+                    <PlayAgainButton onClick={playAgain}>PLAY AGAIN</PlayAgainButton>
                 </ResultRow>
             }
         </Container>

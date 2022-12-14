@@ -14,7 +14,7 @@ const SelectionWrapper = styled.div`
 
 const GameDisplay = () => {
 
-    const [userPick, setUserPick] = useState()
+    const [userPick, setUserPick] = useState("")
     const handleUserPick = (item) => () => {
         setUserPick(item)
     }
@@ -24,7 +24,7 @@ const GameDisplay = () => {
         <SelectionWrapper>
             {!userPick
                 ? <GameStepOne handleUserPick={handleUserPick} />
-                : <GameStepTwo pick={userPick} />
+                : <GameStepTwo setUserPick={setUserPick} pick={userPick} />
             }
         </SelectionWrapper>
     )
