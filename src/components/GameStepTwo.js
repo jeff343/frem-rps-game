@@ -35,9 +35,9 @@ const ButtonWrapper = styled.div`
     width: 150px;
     margin: auto;
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
-    z-index: -1;
 
     &.winner {
+        z-index: -1;
         box-shadow: 0px 0px 0px 30px hsl(214, 47%, 23%, .8),
                     0px 0px 0px 70px hsl(214, 47%, 23%, .5),
                     0px 0px 0px 100px hsl(214, 47%, 23%, .4);
@@ -111,6 +111,10 @@ const PlayAgainButton = styled.button`
     border: none;
     font-size: 16px;
     letter-spacing: 2px;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     @media (min-width: 1000px) {
         margin: 10px auto 0;

@@ -27,18 +27,22 @@ const ModalDisplay = styled.div`
 `;
 
 const RulesTitle = styled.h1`
-    margin: auto;
+    margin: 100px auto 10px;
     width: auto;
 `;
 
 const Rules = styled.img`
-    margin: auto;
+    margin: 20px auto;
     width: auto;
 `;
 
 const CloseModalButton = styled.img`
-    margin: auto;
+    margin: 20px auto;
     width: auto;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const BackgroundOverlay = styled.div`

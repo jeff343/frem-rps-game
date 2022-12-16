@@ -14,6 +14,11 @@ const Button = styled.button`
     width: 150px;
     color: white;
     background: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
     @media (min-width: 1000px) {
         margin-right: 30px;
     }

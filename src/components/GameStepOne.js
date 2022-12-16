@@ -24,6 +24,11 @@ const ButtonWrapper = styled.div`
     width: 150px;
     margin: auto;
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
+
+    &:hover {
+        cursor: pointer;
+    }
+
     &:last-child {
         grid-column: 1/3;
     }    
