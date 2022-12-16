@@ -10,6 +10,10 @@ const ScoreContainer = styled.div`
     margin: auto 20px auto;
     line-height: 1;
     text-align: center;
+    @media (min-width: 1000px) {
+        height: 140px;
+        width: 160px;
+    }
 `;
 
 const Title = styled.h1`
@@ -17,11 +21,18 @@ const Title = styled.h1`
     font-size: 12px;
     letter-spacing: 2px;
     margin-top: 10px;
+    @media (min-width: 1000px) {
+        margin-top: 20px;
+        font-size: 20px;
+    }
 `;
 
 const ScoreNumber = styled.h1`
     color: hsl(229, 25%, 31%);
     font-size: 48px;
+    @media (min-width: 1000px) {
+        font-size: 80px;
+    }
 `;
 
 const Score = () => {

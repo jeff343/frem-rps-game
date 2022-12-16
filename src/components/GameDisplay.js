@@ -9,6 +9,11 @@ const SelectionWrapper = styled.div`
     max-height: 500px;
     max-width: 500px;
     width: 90%;
+
+    @media (min-width: 1000px) {
+        max-height: 800px;
+        max-width: 800px;
+    }
 `;
 
 

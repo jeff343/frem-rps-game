@@ -9,6 +9,10 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     margin: auto;
     padding: 40px 0;
+    @media (min-width: 1000px) {
+        grid-template-columns: ${props => props.gridType 
+            ? "1fr 2fr 1fr"
+            : "1fr 1fr"}
 `;
 
 const EmptyButton = styled.div`
@@ -30,6 +34,10 @@ const ButtonWrapper = styled.div`
     width: 150px;
     margin: auto;
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
+    @media (min-width: 1000px) {
+        height: 200px;
+        width: 200px;
+    }
 `;
 
 const RPSButton = styled.div`
@@ -40,7 +48,11 @@ const RPSButton = styled.div`
     border-radius: 100%;
     width: 120px;
     height: 120px;
-    box-shadow: 0px 5px 5px grey inset;
+    box-shadow: 0px 6px 0px rgba(128,128,128,0.4) inset;
+    @media (min-width: 1000px) {
+        height: 160px;
+        width: 160px;
+    }
 `;
 
 
@@ -48,7 +60,10 @@ const DisplayText = styled.h1`
     text-align: center;
     color: white;
     font-size: 16px;
-    
+    margin-top: 20px;
+    @media (min-width: 1000px) {
+        grid-row: 1;
+    }
 `;
 
 const ResultRow = styled.div`
@@ -56,6 +71,16 @@ const ResultRow = styled.div`
     text-align: center;
     font-size: 36px;
     color: white;
+    margin-bottom: auto;
+    @media (min-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        grid-row: 1/3;
+        grid-column: 2;
+    }
 `;
 
 const PlayAgainButton = styled.button`
@@ -68,6 +93,15 @@ const PlayAgainButton = styled.button`
     border: none;
     font-size: 16px;
     letter-spacing: 2px;
+    @media (min-width: 1000px) {
+        margin: 10px auto 0;
+    }
+`;
+
+const RPSImg = styled.img`
+    @media (min-width: 1000px) {
+        height: 100px;
+    }
 `;
 
 const GameStepTwo = ({ pick, setUserPick }) => {
@@ -134,28 +168,27 @@ const GameStepTwo = ({ pick, setUserPick }) => {
     }
 
     return (
-        <Container>
+        <Container gridType={result}>
             <ButtonWrapper color={pick.color} shadow={pick.shadow} >
                 <RPSButton>
-                    <img src={pick.image} alt="your pick" /> 
+                    <RPSImg src={pick.image} alt="your pick" /> 
                 </RPSButton>
             </ButtonWrapper>
-            {!housePick 
-                ? <EmptyButton />
-                : <ButtonWrapper color={housePick.color} shadow={housePick.shadow} >
-                    <RPSButton>
-                        <img src={housePick.image} alt="house pick" /> 
-                    </RPSButton>
-                  </ButtonWrapper>
-            }
+                {!housePick 
+                    ? <EmptyButton />
+                    : <ButtonWrapper color={housePick.color} shadow={housePick.shadow} >
+                        <RPSButton>
+                            <RPSImg src={housePick.image} alt="house pick" /> 
+                        </RPSButton>
+                    </ButtonWrapper>
+                }
             <DisplayText>YOU PICKED</DisplayText>
             <DisplayText>THE HOUSE PICKED</DisplayText>
-            {result && <ResultRow><h1>YOU {result}</h1></ResultRow> }
             {result && 
                 <ResultRow>
+                    <h1>YOU {result}</h1>
                     <PlayAgainButton onClick={playAgain}>PLAY AGAIN</PlayAgainButton>
-                </ResultRow>
-            }
+                </ResultRow> }
         </Container>
     )
 }

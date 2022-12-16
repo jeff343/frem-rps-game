@@ -27,6 +27,10 @@ const ButtonWrapper = styled.div`
     &:last-child {
         grid-column: 1/3;
     }
+    @media (min-width: 1000px) {
+        height: 200px;
+        width: 200px;
+    }
 `;
 
 const RPSButton = styled.div`
@@ -37,9 +41,18 @@ const RPSButton = styled.div`
     border-radius: 100%;
     width: 120px;
     height: 120px;
-    box-shadow: 0px 5px 5px grey inset;
+    box-shadow: 0px 6px 0px rgba(128,128,128,0.4) inset;
+    @media (min-width: 1000px) {
+        height: 160px;
+        width: 160px;
+    }
 `;
 
+const RPSImg = styled.img`
+    @media (min-width: 1000px) {
+        height: 100px;
+    }
+`;
 
 const GameStepOne = ({ handleUserPick }) => {
 
@@ -49,7 +62,7 @@ const GameStepOne = ({ handleUserPick }) => {
                 return (
                     <ButtonWrapper onClick={handleUserPick(item)} color={item.color} shadow={item.shadow} key={item.id} >
                         <RPSButton>
-                            <img src={item.image} alt="rps symbol" />
+                            <RPSImg src={item.image} alt="rps symbol" />
                         </RPSButton>
                     </ButtonWrapper>
                 )

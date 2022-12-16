@@ -6,10 +6,14 @@ const HeaderContainer = styled.div`
     margin: 40px auto;
     height: 120px;
     width: 80%;
+    max-width: 900px;
     border: 5px solid hsl(217, 16%, 45%);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    @media (min-width: 1000px) {
+        height: 180px;
+    }
 `;
 
 const HeaderLogo = styled.img`
