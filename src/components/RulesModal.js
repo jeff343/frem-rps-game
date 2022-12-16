@@ -16,6 +16,7 @@ const ModalDisplay = styled.div`
     top: 0;
     display: flex;
     flex-direction: column;
+
     @media (min-width: 1000px) {
         height: 400px;
         width: 400px;
@@ -23,17 +24,30 @@ const ModalDisplay = styled.div`
         left: 50%;
         margin-left: -200px;
         border-radius: 10px;
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
     }
 `;
 
 const RulesTitle = styled.h1`
     margin: 100px auto 10px;
     width: auto;
+
+    @media (min-width: 1000px) {
+        margin: auto;
+        margin-left: 30px;
+    }
 `;
 
 const Rules = styled.img`
     margin: 20px auto;
     width: auto;
+
+    @media (min-width: 1000px) {
+        margin: auto;
+        grid-column: 1/3;
+        grid-row: 2;
+    }
 `;
 
 const CloseModalButton = styled.img`
@@ -42,6 +56,11 @@ const CloseModalButton = styled.img`
 
     &:hover {
         cursor: pointer;
+    }
+
+    @media (min-width: 1000px) {
+        margin: auto;
+        margin-right: 30px;
     }
 `;
 
