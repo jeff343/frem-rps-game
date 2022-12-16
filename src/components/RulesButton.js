@@ -4,19 +4,19 @@ const Container = styled.div`
     display: flex;
     width: auto;
     margin: auto;
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
 `;
 
 const Button = styled.button`
+    margin: 20px auto 20px;
     border: 3px solid hsl(217, 16%, 45%);
     border-radius: 10px;
     height: 50px;
     width: 150px;
     color: white;
-    margin-left: -75px;
     background: none;
+    @media (min-width: 1000px) {
+        margin-right: 30px;
+    }
 `;
 
 const RulesButton = ({ setModalOpen }) => {
