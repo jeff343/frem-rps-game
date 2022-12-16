@@ -9,6 +9,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     margin: auto;
     padding: 40px 0;
+
     @media (min-width: 1000px) {
         grid-template-columns: ${props => props.gridType 
             ? "1fr 2fr 1fr"
@@ -34,9 +35,23 @@ const ButtonWrapper = styled.div`
     width: 150px;
     margin: auto;
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
+    z-index: -1;
+
+    &.winner {
+        box-shadow: 0px 0px 0px 30px hsl(214, 47%, 23%, .8),
+                    0px 0px 0px 70px hsl(214, 47%, 23%, .5),
+                    0px 0px 0px 100px hsl(214, 47%, 23%, .4);
+    }
+
     @media (min-width: 1000px) {
         height: 200px;
         width: 200px;
+
+        &.winner {
+            box-shadow: 0px 0px 0px 60px hsl(214, 47%, 23%, .8),
+                        0px 0px 0px 120px hsl(214, 47%, 23%, .5),
+                        0px 0px 0px 200px hsl(214, 47%, 23%, .4);
+        }
     }
 `;
 
@@ -49,6 +64,7 @@ const RPSButton = styled.div`
     width: 120px;
     height: 120px;
     box-shadow: 0px 6px 0px rgba(128,128,128,0.4) inset;
+
     @media (min-width: 1000px) {
         height: 160px;
         width: 160px;
@@ -61,6 +77,7 @@ const DisplayText = styled.h1`
     color: white;
     font-size: 16px;
     margin-top: 20px;
+
     @media (min-width: 1000px) {
         grid-row: 1;
     }
@@ -72,6 +89,7 @@ const ResultRow = styled.div`
     font-size: 36px;
     color: white;
     margin-bottom: auto;
+
     @media (min-width: 1000px) {
         display: flex;
         flex-direction: column;
@@ -93,6 +111,7 @@ const PlayAgainButton = styled.button`
     border: none;
     font-size: 16px;
     letter-spacing: 2px;
+
     @media (min-width: 1000px) {
         margin: 10px auto 0;
     }
@@ -169,14 +188,21 @@ const GameStepTwo = ({ pick, setUserPick }) => {
 
     return (
         <Container gridType={result}>
-            <ButtonWrapper color={pick.color} shadow={pick.shadow} >
+            <ButtonWrapper 
+                className={result==='WIN' ? 'winner' : ''} 
+                color={pick.color} 
+                shadow={pick.shadow} 
+            >
                 <RPSButton>
                     <RPSImg src={pick.image} alt="your pick" /> 
                 </RPSButton>
             </ButtonWrapper>
                 {!housePick 
                     ? <EmptyButton />
-                    : <ButtonWrapper color={housePick.color} shadow={housePick.shadow} >
+                    : <ButtonWrapper 
+                        className={result==='LOSE' ? 'winner' : ''} 
+                        color={housePick.color} 
+                        shadow={housePick.shadow} >
                         <RPSButton>
                             <RPSImg src={housePick.image} alt="house pick" /> 
                         </RPSButton>

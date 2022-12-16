@@ -26,7 +26,8 @@ const ButtonWrapper = styled.div`
     box-shadow: 0px 7px 0px -1px ${props => props.shadow};
     &:last-child {
         grid-column: 1/3;
-    }
+    }    
+
     @media (min-width: 1000px) {
         height: 200px;
         width: 200px;
