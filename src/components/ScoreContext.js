@@ -27,7 +27,7 @@ function scoreReducer(score, action) {
             return (score)
         }
         case 'LOSE':{
-            return (score - 1)
+            return (score > 0 ? score - 1 : score)
         }
         default: {
             throw Error('Unknown Action')
