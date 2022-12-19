@@ -30,7 +30,7 @@ All images (located in assets/images) were provided by Front End Mentor, as well
 
 ### Links
 
-- Solution URL: [RPS Game](https://github.com/jeff343/frem-rps-game)
+- Solution URL: [RPS Game](https://jeff343.github.io/frem-rps-game/)
 
 ## My process
 
