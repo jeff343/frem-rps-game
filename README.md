@@ -57,7 +57,9 @@ Although I used context to help handle state, I would like to implement it on a 
 - [React - Dispatch and Context](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context#step-2-put-state-and-dispatch-into-context) - This helped me to set up the score context for my app.
 - [Styled Components Documentation](https://styled-components.com/docs) - The documentation for Styled Compnenets I used to learn.
 
+## Author
 
+- github - [@jeff343](https://github.com/jeff343)
 
 
 
