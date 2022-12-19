@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/frem-rps-game/static/css/main.fc5b0ce2.css",
+    "main.js": "/frem-rps-game/static/js/main.e76b8ee9.js",
+    "static/media/logo.svg": "/frem-rps-game/static/media/logo.a4a2b39fefcdb6a1a8088c4dba8f3d93.svg",
+    "static/media/image-rules.svg": "/frem-rps-game/static/media/image-rules.258b753fb6284dc8ae00c5b2fa7938c0.svg",
+    "static/media/icon-paper.svg": "/frem-rps-game/static/media/icon-paper.8b57a6b108c1b8ae82931a39b10f96a2.svg",
+    "static/media/icon-scissors.svg": "/frem-rps-game/static/media/icon-scissors.3b1a5d7eb0b2f1fd3e955865ec04d9ed.svg",
+    "index.html": "/frem-rps-game/index.html",
+    "static/media/icon-rock.svg": "/frem-rps-game/static/media/icon-rock.476e90a9646a87bb3645d2f09f4f7fba.svg",
+    "static/media/icon-close.svg": "/frem-rps-game/static/media/icon-close.bde602ecd1a4e55e0c27137ed651e027.svg",
+    "static/media/bg-triangle.svg": "/frem-rps-game/static/media/bg-triangle.77c6ca418d3751d8f71789234314a8b9.svg",
+    "main.fc5b0ce2.css.map": "/frem-rps-game/static/css/main.fc5b0ce2.css.map",
+    "main.e76b8ee9.js.map": "/frem-rps-game/static/js/main.e76b8ee9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc5b0ce2.css",
+    "static/js/main.e76b8ee9.js"
+  ]
+}
